@@ -1,0 +1,20 @@
+// COLORS
+@import "./colors/colors";
+
+// FONTS
+@import "./font/fonts";
+
+// BASE
+@import "./base";
+
+// COMPONENTS
+@import "./components/header";
+
+// HELPERS
+@import "./helpers/darkmode";
+@import "./helpers/containers";
+@import "./helpers/buttons";
+@import "./helpers/cursor";
+
+// PAGES
+@import "./pages/frontpage";

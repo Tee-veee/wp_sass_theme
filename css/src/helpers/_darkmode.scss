@@ -1,0 +1,150 @@
+@import "../colors/colors";
+@import "../helpers/styles";
+
+// NOTES - DARK MODE
+@mixin dark-mode {
+  background-color: $dark-color;
+
+  // text color
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  a,
+  span {
+    color: $light-color;
+  }
+
+  // changes svg icon color
+  .icon {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) hue-rotate(0deg)
+      saturate(0%) brightness(100%) contrast(100%);
+  }
+
+  #toggle {
+    border: 2px solid $light-color;
+    background-color: $dark-color;
+
+    .toggle__inner-btn {
+      background-color: $dark-color;
+    }
+  }
+
+  .card {
+    .card__image {
+      background-color: $dark-color;
+      @include border(5px, $primary-color);
+
+      .card__icon {
+        filter: brightness(0) saturate(100%) invert(100%) sepia(0%)
+          hue-rotate(0deg) saturate(0%) brightness(100%) contrast(100%);
+      }
+    }
+  }
+
+  // button animation
+  .animated-button {
+    color: $primary-color;
+  }
+
+  // hover transition main menu - desktop
+  #header__inner-menu {
+    a {
+      transition: 0.5s ease;
+    }
+
+    &:hover {
+      a {
+        color: #646464;
+
+        &:hover {
+          color: $light-color;
+          // 0 2px 0 0 - adds border
+          box-shadow: 0 0 0 0 currentcolor;
+        }
+      }
+    }
+  }
+}
+
+// NOTES - LIGHT MODE
+@mixin light-mode {
+  background-color: $light-color;
+
+  // text color
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  a,
+  span {
+    color: $dark-color;
+  }
+
+  .icon {
+    filter: brightness(0) saturate(100%) invert(0%) sepia(0%) hue-rotate(0deg)
+      saturate(0%) brightness(90%) contrast(100%);
+  }
+
+  #toggle {
+    border: 2px solid $dark-color;
+    background-color: $light-color;
+
+    .toggle__inner-btn {
+      background-color: $light-color;
+    }
+  }
+
+  .card {
+    .card__image {
+      background-color: $light-color;
+      @include border(5px, $dark-color);
+
+      .card__icon {
+        filter: brightness(0) saturate(100%) invert(0%) sepia(0%)
+          hue-rotate(0deg) saturate(0%) brightness(90%) contrast(100%);
+      }
+    }
+  }
+
+  // button animation
+  .animated-button {
+    color: $dark-color;
+  }
+
+  // hover transition main menu - desktop
+  #header__inner-menu {
+    a {
+      transition: 0.5s ease;
+    }
+
+    &:hover {
+      a {
+        color: #f7f7f7;
+        &:hover {
+          color: $dark-color;
+          // 0 2px 0 0 - adds border
+          box-shadow: 0 0 0 0 currentcolor;
+        }
+      }
+    }
+  }
+}
+
+.dark-mode {
+  @include dark-mode;
+}
+
+.light-mode {
+  @include light-mode;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    @include dark-mode;
+  }
+}

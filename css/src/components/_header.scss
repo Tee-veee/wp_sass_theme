@@ -1,0 +1,58 @@
+@import "../helpers/containers";
+@import "../colors/colors";
+
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  transition: all 0.35s;
+  z-index: 100;
+}
+
+.hide-header {
+  transform: translateY(-120%);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  #header__inner-menu {
+    display: flex;
+
+    li {
+      list-style: none;
+      cursor: pointer;
+      margin: 0px 8px;
+      font-size: 20px;
+    }
+
+    a {
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+}
+
+#toggle {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 20;
+  transition: all 0.35s;
+
+  .toggle__inner-btn {
+    border: 0;
+    transition: all 0.35s;
+  }
+}
+
+.transparent-background {
+  background-color: rgba(0, 0, 0, 0) !important;
+}

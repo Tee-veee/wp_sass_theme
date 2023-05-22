@@ -1,0 +1,80 @@
+$landingPageHeight: calc(100vh - 80px);
+
+// min-width
+$sm: 36em; // (min-width: 576px)
+$md: 48em; // (min-width: 768px)
+$lg: 62em; // (min-width: 992px)
+$xl: 75em; // (min-width: 1200px)
+$xxl: 100em; // (min-width: 1600px)
+$xxxl: 125em; // (min-width: 2000px)
+
+// max-width
+$mw-xs: 23.5em; // 376px @media (max-width: $xs)
+$mw-sm: 540px; // (max-width: 540px)
+$mw-md: 720px; // (max-width: 720px)
+$mw-lg: 960px; // (max-width: 960px)
+$mw-xl: 1140px; // (max-width: 1140px)
+$mw-xxl: 1440px; // (max-width: 1440px)
+$mw-xxxl: 1800px; // (max-width: 1800px)
+
+// mixin for media queries
+@mixin mq-min($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
+      @content;
+    }
+  }
+}
+
+@mixin mq-max($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: #{map-get($breakpoints, $breakpoint)}) {
+      @content;
+    }
+  }
+}
+
+$breakpoints: (
+  sm: $sm,
+  md: $md,
+  lg: $lg,
+  xl: $xl,
+  xxl: $xxl,
+  xxxl: $xxxl,
+);
+
+// REGULAR CONTAINER
+.container {
+  position: relative;
+  padding: 2rem;
+  margin: 0 auto;
+  width: 100%;
+
+  @include mq-min(sm) {
+    max-width: $mw-sm;
+  }
+
+  @include mq-min(md) {
+    max-width: $mw-md;
+  }
+
+  @include mq-min(lg) {
+    max-width: $mw-lg;
+    padding: 0;
+  }
+
+  @include mq-min(xl) {
+    max-width: $mw-xl;
+    padding: 0;
+  }
+
+  @include mq-min(xxl) {
+    max-width: $mw-xxl;
+    padding: 0;
+  }
+
+  @include mq-min(xxxl) {
+    max-width: $mw-xxxl;
+    padding: 0;
+  }
+}

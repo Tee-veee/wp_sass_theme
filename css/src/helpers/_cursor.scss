@@ -1,0 +1,15 @@
+@import "../colors/colors";
+
+#cursor-follow {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: $primary-color;
+  transition: all 200ms ease-out;
+  position: fixed;
+  pointer-events: none;
+  left: 0;
+  top: 0;
+  transform: translate(calc(-50% + 15px), -50%);
+  z-index: 1000;
+}
