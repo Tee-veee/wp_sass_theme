@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const body = document.body;
   let header = document.getElementById("header");
+
   let lastScrollTop = 0;
 
   window.addEventListener("scroll", function () {

@@ -28,22 +28,43 @@
 </head>
 <html>
 
-<header id="header">
-  <div class="container">
-    <div class="header__inner">
-      <h3>Logo here</h3>
-      <?php $args = array(
-        'theme_location' => 'primary-menu',
-        'menu_class' => 'header__inner-menu-item',
-        'menu_id' => 'header__inner-menu',
-      ); ?>
-      <?php wp_nav_menu($args); ?>
-    </div>
-  </div>
-</header>
+
+
+
 
 <body>
   <div id="cursor-follow"></div>
+
+  <!-- MENU -->
+  <div class="menu menu__close">
+    <div class="container"></div>
+  </div>
+  <!-- END MENU -->
+
+  <header id="header">
+    <div class="container">
+      <div class="header__inner">
+        <?php $args = array(
+          'theme_location' => 'primary-menu',
+          'menu_class' => 'header__inner-menu-item',
+          'menu_id' => 'header__inner-menu',
+        ); ?>
+        <?php wp_nav_menu($args); ?>
+
+        <!-- HAMBURGER -->
+        <div class="hamburger hamburger__close">
+          <div class="hamburger__icon">
+            <div class="hamburger__line hamburger__line-1"></div>
+            <div class="hamburger__line hamburger__line-2"></div>
+            <div class="hamburger__line hamburger__line-3"></div>
+          </div>
+        </div>
+        <!-- END HAMBURGER -->
+      </div>
+    </div>
+  </header>
+
+
   <div id="toggle">
     <div class="toggle__inner">
       <button class="toggle__inner-btn">

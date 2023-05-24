@@ -1,0 +1,138 @@
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  background-color: #2a2a2a;
+  color: #fff;
+  transform: translateY(-150%);
+  cursor: auto;
+  overflow: auto;
+
+  &__close {
+    animation: hideMenu 0.9s cubic-bezier(0.405, 0, 0.025, 1);
+  }
+
+  &.open {
+    animation: showMenu 0.3s cubic-bezier(0.405, 0, 0.025, 1) forwards;
+  }
+}
+
+@keyframes hideMenu {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-150%);
+  }
+}
+
+@keyframes showMenu {
+  0% {
+    transform: translateY(-150%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+// HAMBURGER
+
+$size: 40px;
+$height: 17px;
+$width: 25px;
+$line-size: 3px;
+$line-color: #ffffff;
+$line-radius: $line-size;
+$to-translate: calc(($height - $line-size) / 2);
+$bounce: cubic-bezier(0.87, -0.5, 0.19, 1.5);
+
+.hamburger {
+  position: relative;
+  height: $size;
+  width: $size;
+  cursor: pointer;
+  overflow: hidden;
+
+  &__icon {
+    position: absolute;
+    width: $width;
+    height: $height;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &__line {
+    position: absolute;
+    left: 0;
+    background-color: $line-color;
+    height: $line-size;
+    width: 100%;
+    border-radius: $line-radius;
+    pointer-events: none;
+    &-1 {
+      top: 0;
+    }
+    &-2 {
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+    &-3 {
+      bottom: 0;
+    }
+  }
+
+  &__close &__icon {
+    transition: transform 0s ease-in-out;
+  }
+  &__close &__line-1 {
+    transition: transform 0.2s ease-in-out 0.3s, opacity 0s ease-in-out 0.4s;
+  }
+  &__close &__line-2 {
+    transition: transform 0.2s ease-in-out;
+  }
+  &__close &__line-2:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: $line-size;
+    background-color: $line-color;
+    border-radius: $line-radius;
+    transition: transform 0.2s ease-in-out;
+  }
+  &__close &__line-3 {
+    transition: transform 0.2s ease-in-out 0.3s, opacity 0s ease-in-out 0.4s;
+  }
+  // Open
+  &__close.open &__icon {
+    transform: translate(-50%, -50%) rotate(90deg);
+    transition: transform 0.2s ease-in-out;
+  }
+  &__close.open &__line-1 {
+    opacity: 0;
+    transform: translate3d(0, $to-translate, 0);
+    transition: transform 0.2s ease-in-out 0.2s, opacity 0s ease-in-out 0.4s;
+  }
+  &__close.open &__line-2 {
+    transform: rotate(45deg);
+    transition: transform 0.2s ease-in-out 0.5s;
+  }
+  &__close.open &__line-2:before {
+    transform: rotate(-90deg);
+    transition: transform 0.2s ease-in-out 0.5s;
+  }
+  &__close.open &__line-3 {
+    opacity: 0;
+    transform: translate3d(0, -$to-translate, 0);
+    transition: transform 0.2s ease-in-out 0.2s, opacity 0s ease-in-out 0.4s;
+  }
+}
